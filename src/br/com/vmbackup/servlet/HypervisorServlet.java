@@ -2,6 +2,7 @@ package br.com.vmbackup.servlet;
 
 import java.io.IOException;
 
+import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,25 +16,30 @@ import br.com.vmbackup.negocio.ImplementThread;
 import br.com.vmbackup.negocio.ScanHypervisor;
 import br.com.vmbackup.negocio.StatusHypervisor;
 
-@SuppressWarnings("serial")
 @WebServlet("/hypervisor")
 public class HypervisorServlet extends HttpServlet {
 
-	private HypervisorDao hypervisorDao = new HypervisorDao();
-	
+	private static final long serialVersionUID = 1L;
+
+	@Inject
+	private HypervisorDao hypervisorDao;
+
+	public final static String HYPERVISOR = "hypervisor";
+
+	public final static String CADASTRO_HYPERVISOR = "cadastro_hypervisor";
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String acao = request.getParameter("logica");
+		final String acao = request.getParameter("logica");
 
-		if (acao.equals("hypervisor")) {
+		if (acao.equals(HYPERVISOR)) {
 			request.setAttribute("hypervisorList", hypervisorDao.getLista());
 			RequestDispatcher rd = request.getRequestDispatcher("/index.jsp?file2=hypervisor.jsp");
 			rd.forward(request, response);
 		}
 
-		if (acao.equals("cadastro_hypervisor")) {
+		if (acao.equals(CADASTRO_HYPERVISOR)) {
 			request.setAttribute("hypervisorList", hypervisorDao.getLista());
 			RequestDispatcher rd = request.getRequestDispatcher("/index.jsp?file=hypervisor_cadastro.jsp&file2=hypervisor.jsp");
 			rd.forward(request, response);

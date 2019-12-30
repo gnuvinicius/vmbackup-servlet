@@ -2,12 +2,14 @@ package br.com.vmbackup.dao;
 
 import java.util.List;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 import br.com.vmbackup.modelo.Hypervisor;
 
+@Stateless
 public class HypervisorDao {
 
 	public void adicionarHypervisor(Hypervisor hypervisor) {

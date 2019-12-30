@@ -2,6 +2,7 @@ package br.com.vmbackup.servlet;
 
 import java.io.IOException;
 
+import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,15 +22,25 @@ import br.com.vmbackup.negocio.MakeCrontab;
 import br.com.vmbackup.negocio.Procedure;
 import br.com.vmbackup.negocio.ReadFiles;
 
-@SuppressWarnings("serial")
 @WebServlet("/schedule")
 public class ScheduleServlet extends HttpServlet {
 
-	private GuestDao guestDao = new GuestDao();
-	private DatastoreDao datastoreDao = new DatastoreDao();
-	private ScheduleDao scheduleDao = new ScheduleDao();
-	private HypervisorDao hypervisorDao = new HypervisorDao();
-	private ReadFiles readFiles = new ReadFiles();
+	private static final long serialVersionUID = 1L;
+
+	@Inject
+	private GuestDao guestDao;
+	
+	@Inject
+	private DatastoreDao datastoreDao;
+
+	@Inject
+	private ScheduleDao scheduleDao;
+
+	@Inject
+	private HypervisorDao hypervisorDao;
+
+	@Inject
+	private ReadFiles readFiles;
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)

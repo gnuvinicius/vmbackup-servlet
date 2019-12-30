@@ -2,6 +2,7 @@ package br.com.vmbackup.dao;
 
 import java.util.List;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
@@ -9,6 +10,7 @@ import javax.persistence.Query;
 import br.com.vmbackup.modelo.Datastore;
 import br.com.vmbackup.modelo.Hypervisor;
 
+@Stateless
 public class DatastoreDao {
 
 	public void addDatastore(Datastore datastore) {

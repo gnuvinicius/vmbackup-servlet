@@ -7,10 +7,12 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.URL;
 
+import javax.ejb.Stateless;
+
 import br.com.vmbackup.modelo.Hour;
 import br.com.vmbackup.modelo.Sequence;
 
-
+@Stateless
 public class ReadFiles {
 
 	public void setSequence(Sequence sequence) {
@@ -31,7 +33,6 @@ public class ReadFiles {
 			setSequence(new Sequence(1));
 			return sequence = (Sequence) getInFile(sequence, path.getFile());
 		}
-
 	}
 
 	public void setHour(Hour hour) {

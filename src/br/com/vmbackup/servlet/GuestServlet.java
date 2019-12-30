@@ -3,6 +3,7 @@ package br.com.vmbackup.servlet;
 import java.io.IOException;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,13 +19,20 @@ import br.com.vmbackup.modelo.Hypervisor;
 import br.com.vmbackup.modelo.VirtualDisk;
 import br.com.vmbackup.negocio.ScanHypervisor;
 
-@SuppressWarnings("serial")
+
 @WebServlet("/guest")
 public class GuestServlet extends HttpServlet {
 
-	private GuestDao guestDao = new GuestDao();
-	private HypervisorDao hypervisorDao = new HypervisorDao();
-	private VirtualDiskDao virtualDiskDao = new VirtualDiskDao();
+	private static final long serialVersionUID = 1L;
+	
+	@Inject
+	private GuestDao guestDao;
+
+	@Inject
+	private HypervisorDao hypervisorDao;
+
+	@Inject
+	private VirtualDiskDao virtualDiskDao;
 	
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)

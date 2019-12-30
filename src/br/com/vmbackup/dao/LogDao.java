@@ -3,11 +3,13 @@ package br.com.vmbackup.dao;
 import java.util.Collections;
 import java.util.List;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import br.com.vmbackup.modelo.Log;
 
+@Stateless
 public class LogDao {
 
 	public void addLog(Log log) {

@@ -84,7 +84,7 @@ public class Procedure {
 			comandCurrent = null;
 			methodCloning = false;
 		} else {
-			System.out.println("conex�o falhou!");
+			System.out.println("conexao falhou!");
 		}
 	}
 }
