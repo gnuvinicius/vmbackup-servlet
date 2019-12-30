@@ -1,0 +1,32 @@
+body {
+	background-color: #D6EAF8;
+	height: 100%;
+}
+
+.top-buffer {
+	margin-top: 30px;
+}
+
+.bottom-buffer {
+	margin-bottom: 30px
+}
+
+.fixed-panel {
+	min-height: 800px;
+	max-height: 800px;
+}
+
+.fixed-panel-left {
+	min-height: 680px;
+	max-height: 680px;
+}
+
+.fixed-panel-right {
+	min-height: 680px;
+	max-height: 680px;
+}
+
+.scroll {
+	overflow-y: auto;
+	max-height: 680px
+}
